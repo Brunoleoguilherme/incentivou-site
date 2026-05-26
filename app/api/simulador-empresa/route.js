@@ -42,14 +42,16 @@ export async function POST(req) {
     ]);
 
     if (error) {
-      return NextResponse.json(
-        { error: 'Erro ao salvar simulação' },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    if (process.env.RESEND_API_KEY) {
-      await fetch('https://api.resend.com/emails', {
+    const emailsComerciais = String(process.env.COMERCIAL_EMAIL || '')
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    if (process.env.RESEND_API_KEY && emailsComerciais.length > 0) {
+      const resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
@@ -57,16 +59,13 @@ export async function POST(req) {
         },
         body: JSON.stringify({
           from: 'IncentiVou <noreply@incentivou.com.br>',
-          to: [process.env.COMERCIAL_EMAIL || 'ester@incentivou.com.br'],
+          to: emailsComerciais,
           subject: `Novo lead IncentiVou - ${empresa}`,
           html: `
             <div style="font-family: Arial, sans-serif; background:#f4f8ff; padding:30px;">
               <div style="max-width:620px; margin:auto; background:#ffffff; border-radius:20px; padding:28px; border:1px solid #dce7f7;">
-                <h2 style="color:#0d2448; margin-top:0;">Novo lead recebido pelo simulador</h2>
-
-                <p style="color:#5f6f89;">
-                  Uma empresa acabou de simular o potencial de incentivo no site da IncentiVou.
-                </p>
+                <h2 style="color:#0d2448;">Novo lead recebido pelo simulador</h2>
+                <p>Uma empresa acabou de simular o potencial de incentivo no site da IncentiVou.</p>
 
                 <div style="background:#ebfff4; border-radius:16px; padding:18px; margin:20px 0;">
                   <strong style="color:#11b979; font-size:22px;">
@@ -74,12 +73,10 @@ export async function POST(req) {
                   </strong>
                 </div>
 
-                <h3 style="color:#0d2448;">Dados do lead</h3>
-
                 <p><strong>Nome:</strong> ${nome}</p>
                 <p><strong>Empresa:</strong> ${empresa}</p>
                 <p><strong>E-mail:</strong> ${email}</p>
-                <p><strong>Telefone/WhatsApp:</strong> ${telefone}</p>
+                <p><strong>Telefone:</strong> ${telefone}</p>
                 <p><strong>Estado:</strong> ${estado}</p>
                 <p><strong>Regime tributário:</strong> ${regimeTributario}</p>
                 <p><strong>IR devido anual:</strong> ${moeda(irDevido)}</p>
@@ -93,12 +90,22 @@ export async function POST(req) {
           `,
         }),
       });
+
+      if (!resendResponse.ok) {
+        const resendError = await resendResponse.text();
+        console.error('Erro Resend:', resendError);
+
+        return NextResponse.json(
+          { error: 'Lead salvo, mas erro ao enviar e-mail', resendError },
+          { status: 500 }
+        );
+      }
     }
 
     return NextResponse.json({ success: true });
   } catch (err) {
     return NextResponse.json(
-      { error: 'Erro interno' },
+      { error: 'Erro interno', details: String(err) },
       { status: 500 }
     );
   }
