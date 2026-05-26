@@ -3,16 +3,35 @@
 import { useMemo, useState } from 'react';
 
 export default function ExecutorSimulator() {
-  const [tipo, setTipo] = useState('OSC');
-  const [cnpj, setCnpj] = useState('Sim');
-  const [estatuto, setEstatuto] = useState('Sim');
+
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    nome: '',
+    organizacao: '',
+    email: '',
+    telefone: '',
+    tipo: 'OSC',
+    cnpj: 'Sim',
+    estatuto: 'Sim',
+    experiencia: 'Não',
+    anos: '1',
+    autorizacaoLgpd: false,
+  });
 
   const resultado = useMemo(() => {
+
     let score = 100;
 
-    if (cnpj === 'Não') score -= 50;
-    if (estatuto === 'Não') score -= 35;
-    if (tipo === 'Projeto Independente') score -= 20;
+    if (form.cnpj === 'Não') score -= 40;
+
+    if (form.estatuto === 'Não') score -= 30;
+
+    if (form.tipo === 'Projeto Independente') score -= 15;
+
+    if (form.experiencia === 'Não') score -= 10;
+
+    if (Number(form.anos) < 2) score -= 10;
 
     if (score >= 80) {
       return {
@@ -38,10 +57,83 @@ export default function ExecutorSimulator() {
       texto:
         'Sua estrutura atual precisa de regularização antes do processo de captação.',
     };
-  }, [tipo, cnpj, estatuto]);
+
+  }, [form]);
+
+  async function enviarDiagnostico(e) {
+
+    e.preventDefault();
+
+    if (!form.autorizacaoLgpd) {
+
+      alert(
+        'Você precisa autorizar o contato da equipe IncentiVou.'
+      );
+
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+
+      const response = await fetch(
+        '/api/leads/executores',
+        {
+          method: 'POST',
+
+          headers: {
+            'Content-Type': 'application/json',
+          },
+
+          body: JSON.stringify({
+            ...form,
+            status: resultado.status,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Erro ao enviar');
+      }
+
+      alert(
+        'Diagnóstico enviado com sucesso!'
+      );
+
+      setForm({
+        nome: '',
+        organizacao: '',
+        email: '',
+        telefone: '',
+        tipo: 'OSC',
+        cnpj: 'Sim',
+        estatuto: 'Sim',
+        experiencia: 'Não',
+        anos: '1',
+        autorizacaoLgpd: false,
+      });
+
+    } catch (err) {
+
+      console.error(err);
+
+      alert('Erro ao enviar diagnóstico.');
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
+  }
 
   return (
-    <div className="executorSimulator">
+
+    <form
+      className="executorSimulator"
+      onSubmit={enviarDiagnostico}
+    >
 
       <span className="simBadge green">
         PARA EXECUTORES
@@ -52,51 +144,165 @@ export default function ExecutorSimulator() {
       </h3>
 
       <p>
-        Faça uma análise inicial da sua estrutura e
-        descubra o potencial de aprovação e captação
-        do seu projeto esportivo.
+        Descubra o potencial de aprovação,
+        captação e estruturação do seu projeto
+        esportivo incentivado.
       </p>
 
       <div className="simFields">
 
+        <input
+          required
+          placeholder="Seu nome"
+          value={form.nome}
+          onChange={(e) =>
+            setForm({
+              ...form,
+              nome: e.target.value,
+            })
+          }
+        />
+
+        <input
+          required
+          placeholder="Nome da organização"
+          value={form.organizacao}
+          onChange={(e) =>
+            setForm({
+              ...form,
+              organizacao: e.target.value,
+            })
+          }
+        />
+
+        <input
+          required
+          type="email"
+          placeholder="E-mail"
+          value={form.email}
+          onChange={(e) =>
+            setForm({
+              ...form,
+              email: e.target.value,
+            })
+          }
+        />
+
+        <input
+          required
+          placeholder="Telefone / WhatsApp"
+          value={form.telefone}
+          onChange={(e) =>
+            setForm({
+              ...form,
+              telefone: e.target.value,
+            })
+          }
+        />
+
         <div className="field">
+
           <label>Tipo de organização</label>
 
           <select
-            value={tipo}
-            onChange={(e) => setTipo(e.target.value)}
+            value={form.tipo}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                tipo: e.target.value,
+              })
+            }
           >
             <option>OSC</option>
             <option>Associação</option>
             <option>Instituto</option>
             <option>Projeto Independente</option>
           </select>
+
         </div>
 
         <div className="field">
+
           <label>CNPJ ativo?</label>
 
           <select
-            value={cnpj}
-            onChange={(e) => setCnpj(e.target.value)}
+            value={form.cnpj}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                cnpj: e.target.value,
+              })
+            }
           >
             <option>Sim</option>
             <option>Não</option>
           </select>
+
         </div>
 
         <div className="field">
+
           <label>
             Finalidade esportiva no estatuto?
           </label>
 
           <select
-            value={estatuto}
-            onChange={(e) => setEstatuto(e.target.value)}
+            value={form.estatuto}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                estatuto: e.target.value,
+              })
+            }
           >
             <option>Sim</option>
             <option>Não</option>
           </select>
+
+        </div>
+
+        <div className="field">
+
+          <label>
+            Já teve projeto aprovado?
+          </label>
+
+          <select
+            value={form.experiencia}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                experiencia: e.target.value,
+              })
+            }
+          >
+            <option>Não</option>
+            <option>Sim</option>
+          </select>
+
+        </div>
+
+        <div className="field">
+
+          <label>
+            Anos de atuação
+          </label>
+
+          <select
+            value={form.anos}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                anos: e.target.value,
+              })
+            }
+          >
+            <option value="1">Menos de 2 anos</option>
+            <option value="3">2 a 5 anos</option>
+            <option value="6">5 a 10 anos</option>
+            <option value="10">Mais de 10 anos</option>
+          </select>
+
         </div>
 
       </div>
@@ -107,18 +313,58 @@ export default function ExecutorSimulator() {
           borderColor: resultado.cor,
         }}
       >
+
         <span>Status da organização</span>
 
-        <strong style={{ color: resultado.cor }}>
+        <strong
+          style={{
+            color: resultado.cor,
+          }}
+        >
           {resultado.status}
         </strong>
 
-        <p>{resultado.texto}</p>
+        <p>
+          {resultado.texto}
+        </p>
+
       </div>
 
-      <button className="primaryBtn outline">
-        Fazer diagnóstico completo
+      <label className="lgpdCheck">
+
+        <input
+          type="checkbox"
+          checked={form.autorizacaoLgpd}
+          onChange={(e) =>
+            setForm({
+              ...form,
+              autorizacaoLgpd: e.target.checked,
+            })
+          }
+        />
+
+        <span>
+          Autorizo a equipe da IncentiVou a entrar
+          em contato comigo por e-mail, telefone
+          ou WhatsApp de acordo com a LGPD.
+        </span>
+
+      </label>
+
+      <button
+        className="primaryBtn"
+        type="submit"
+        disabled={loading}
+      >
+
+        {loading
+          ? 'Enviando diagnóstico...'
+          : 'Receber diagnóstico completo'}
+
       </button>
-    </div>
+
+    </form>
+
   );
+
 }
