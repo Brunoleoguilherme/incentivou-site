@@ -1367,3 +1367,24 @@ ul.clean li {
   color: var(--muted);
   line-height: 1.55;
 }
+
+.lgpdCheck{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-top:18px;
+  font-size:14px;
+  color:#51607a;
+  line-height:1.5;
+}
+
+.lgpdCheck input{
+  margin-top:4px;
+  width:18px;
+  height:18px;
+}
+
+.primaryBtn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+}

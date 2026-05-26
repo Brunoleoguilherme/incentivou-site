@@ -28,7 +28,7 @@ export async function POST(req) {
       potencial,
     } = body;
 
-    const { error } = await supabase.from('simulacoes_empresas').insert([
+    await supabase.from('simulacoes_empresas').insert([
       {
         nome,
         empresa,
@@ -41,71 +41,125 @@ export async function POST(req) {
       },
     ]);
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    const emailsComerciais = String(process.env.COMERCIAL_EMAIL || '')
+    const emailsComerciais = String(
+      process.env.COMERCIAL_EMAIL || ''
+    )
       .split(',')
       .map((item) => item.trim())
       .filter(Boolean);
 
-    if (process.env.RESEND_API_KEY && emailsComerciais.length > 0) {
-      const resendResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: 'IncentiVou <noreply@incentivou.com.br>',
-          to: emailsComerciais,
-          subject: `Novo lead IncentiVou - ${empresa}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; background:#f4f8ff; padding:30px;">
-              <div style="max-width:620px; margin:auto; background:#ffffff; border-radius:20px; padding:28px; border:1px solid #dce7f7;">
-                <h2 style="color:#0d2448;">Novo lead recebido pelo simulador</h2>
-                <p>Uma empresa acabou de simular o potencial de incentivo no site da IncentiVou.</p>
+    // EMAIL INTERNO
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'IncentiVou <noreply@incentivou.com.br>',
+        to: emailsComerciais,
+        subject: `🔥 Novo lead premium - ${empresa}`,
+        html: `
+          <div style="font-family:Arial;background:#f4f8ff;padding:40px;">
+            <div style="max-width:700px;margin:auto;background:#fff;border-radius:24px;padding:36px;border:1px solid #dce7f7;">
+              
+              <h1 style="color:#0d2448;">
+                Novo lead premium recebido 🚀
+              </h1>
 
-                <div style="background:#ebfff4; border-radius:16px; padding:18px; margin:20px 0;">
-                  <strong style="color:#11b979; font-size:22px;">
-                    Potencial estimado: ${moeda(potencial)}
-                  </strong>
+              <p style="font-size:16px;color:#51607a;">
+                Uma empresa realizou uma simulação de incentivo no site da IncentiVou.
+              </p>
+
+              <div style="background:linear-gradient(135deg,#0b63f6,#11c97b);padding:28px;border-radius:22px;color:white;margin:30px 0;">
+                <div style="font-size:15px;opacity:.9;">
+                  Potencial estimado
                 </div>
 
-                <p><strong>Nome:</strong> ${nome}</p>
-                <p><strong>Empresa:</strong> ${empresa}</p>
-                <p><strong>E-mail:</strong> ${email}</p>
-                <p><strong>Telefone:</strong> ${telefone}</p>
-                <p><strong>Estado:</strong> ${estado}</p>
-                <p><strong>Regime tributário:</strong> ${regimeTributario}</p>
-                <p><strong>IR devido anual:</strong> ${moeda(irDevido)}</p>
+                <div style="font-size:42px;font-weight:800;">
+                  ${moeda(potencial)}
+                </div>
+              </div>
 
-                <a href="https://wa.me/55${String(telefone || '').replace(/\D/g, '')}"
-                   style="display:inline-block; margin-top:20px; padding:14px 20px; border-radius:14px; background:#11b979; color:white; text-decoration:none; font-weight:bold;">
-                  Chamar no WhatsApp
+              <table style="width:100%;font-size:16px;color:#0d2448;">
+                <tr><td><strong>Nome:</strong></td><td>${nome}</td></tr>
+                <tr><td><strong>Empresa:</strong></td><td>${empresa}</td></tr>
+                <tr><td><strong>E-mail:</strong></td><td>${email}</td></tr>
+                <tr><td><strong>Telefone:</strong></td><td>${telefone}</td></tr>
+                <tr><td><strong>Estado:</strong></td><td>${estado}</td></tr>
+                <tr><td><strong>Regime:</strong></td><td>${regimeTributario}</td></tr>
+              </table>
+
+            </div>
+          </div>
+        `,
+      }),
+    });
+
+    // EMAIL PARA O CLIENTE
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'IncentiVou <noreply@incentivou.com.br>',
+        to: [email],
+        subject: '🚀 Sua empresa possui potencial para gerar impacto',
+        html: `
+          <div style="font-family:Arial;background:#eef5ff;padding:40px;">
+            <div style="max-width:720px;margin:auto;background:white;border-radius:28px;padding:42px;border:1px solid #dce7f7;">
+              
+              <h1 style="font-size:42px;color:#0d2448;line-height:1.1;">
+                ${empresa},
+                sua empresa pode transformar imposto em reputação e impacto.
+              </h1>
+
+              <p style="font-size:18px;color:#51607a;line-height:1.7;margin-top:24px;">
+                Recebemos sua simulação na IncentiVou e identificamos potencial para utilização estratégica de incentivo fiscal através do esporte.
+              </p>
+
+              <div style="background:linear-gradient(135deg,#0b63f6,#11c97b);padding:30px;border-radius:24px;color:white;margin:34px 0;">
+                
+                <div style="font-size:15px;opacity:.9;">
+                  Potencial estimado identificado
+                </div>
+
+                <div style="font-size:52px;font-weight:800;">
+                  ${moeda(potencial)}
+                </div>
+
+              </div>
+
+              <p style="font-size:18px;color:#0d2448;font-weight:700;">
+                O que acontece agora?
+              </p>
+
+              <ul style="font-size:16px;color:#51607a;line-height:1.8;">
+                <li>Análise estratégica do perfil da empresa;</li>
+                <li>Identificação de projetos alinhados à marca;</li>
+                <li>Estratégia ESG e posicionamento institucional;</li>
+                <li>Apresentação comercial personalizada.</li>
+              </ul>
+
+              <div style="margin-top:34px;">
+                <a href="https://wa.me/5531997797957"
+                  style="display:inline-block;padding:18px 28px;border-radius:16px;background:#11c97b;color:white;font-weight:700;text-decoration:none;">
+                  Falar com especialista
                 </a>
               </div>
+
             </div>
-          `,
-        }),
-      });
-
-      if (!resendResponse.ok) {
-        const resendError = await resendResponse.text();
-        console.error('Erro Resend:', resendError);
-
-        return NextResponse.json(
-          { error: 'Lead salvo, mas erro ao enviar e-mail', resendError },
-          { status: 500 }
-        );
-      }
-    }
+          </div>
+        `,
+      }),
+    });
 
     return NextResponse.json({ success: true });
   } catch (err) {
     return NextResponse.json(
-      { error: 'Erro interno', details: String(err) },
+      { error: String(err) },
       { status: 500 }
     );
   }

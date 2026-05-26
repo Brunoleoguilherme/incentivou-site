@@ -3,6 +3,8 @@
 import { useState } from 'react';
 
 export default function EmpresaSimulator() {
+  const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     nome: '',
     empresa: '',
@@ -11,66 +13,76 @@ export default function EmpresaSimulator() {
     regime: 'Lucro Real',
     ir: '',
     estado: 'Minas Gerais',
+    lgpd: false,
   });
-
-  const [loading, setLoading] = useState(false);
 
   const potencial =
     form.regime === 'Lucro Real'
       ? Number(String(form.ir).replace(/\D/g, '')) * 0.04
       : 0;
 
+  function update(field, value) {
+    setForm((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  }
+
   async function enviarLead(e) {
     e.preventDefault();
 
-    try {
-      setLoading(true);
+    const emailValido = /\S+@\S+\.\S+/.test(form.email);
 
-      const response = await fetch('/api/simulador-empresa', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome: form.nome,
-          empresa: form.empresa,
-          email: form.email,
-          telefone: form.telefone,
-          estado: form.estado,
-          regimeTributario: form.regime,
-          irDevido: Number(
-            String(form.ir).replace(/\D/g, '')
-          ),
-          potencial,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Erro ao enviar');
-      }
-
-      alert(
-        'Simulação enviada com sucesso! Nosso comercial entrará em contato.'
-      );
-
-      setForm({
-        nome: '',
-        empresa: '',
-        email: '',
-        telefone: '',
-        regime: 'Lucro Real',
-        ir: '',
-        estado: 'Minas Gerais',
-      });
-    } catch (error) {
-      console.log(error);
-
-      alert(
-        'Erro ao enviar simulação.'
-      );
-    } finally {
-      setLoading(false);
+    if (!emailValido) {
+      alert('Digite um e-mail válido.');
+      return;
     }
+
+    if (!form.lgpd) {
+      alert('É necessário autorizar o contato conforme a LGPD.');
+      return;
+    }
+
+    setLoading(true);
+
+    const response = await fetch('/api/simulador-empresa', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nome: form.nome,
+        empresa: form.empresa,
+        email: form.email,
+        telefone: form.telefone,
+        estado: form.estado,
+        regimeTributario: form.regime,
+        irDevido: form.ir,
+        potencial,
+      }),
+    });
+
+    setLoading(false);
+
+    if (!response.ok) {
+      alert('Erro ao enviar simulação.');
+      return;
+    }
+
+    alert(
+      'Simulação enviada com sucesso! Nossa equipe comercial entrará em contato.'
+    );
+
+    setForm({
+      nome: '',
+      empresa: '',
+      email: '',
+      telefone: '',
+      regime: 'Lucro Real',
+      ir: '',
+      estado: 'Minas Gerais',
+      lgpd: false,
+    });
   }
 
   return (
@@ -80,77 +92,49 @@ export default function EmpresaSimulator() {
       onSubmit={enviarLead}
     >
       <span className="simBadge">
-        Simulador
+        Simulador Premium
       </span>
 
-      <h3>
-        Simule seu potencial de incentivo
-      </h3>
+      <h3>Simule seu potencial de incentivo</h3>
 
       <p>
-        Preencha os dados para calcular o
-        potencial e enviar para nosso
-        comercial.
+        Descubra rapidamente quanto sua empresa pode
+        transformar em impacto esportivo, ESG e reputação.
       </p>
 
       <div className="simFields">
         <input
           required
-          placeholder="Seu nome"
           value={form.nome}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              nome: e.target.value,
-            })
-          }
+          placeholder="Seu nome"
+          onChange={(e) => update('nome', e.target.value)}
         />
 
         <input
           required
-          placeholder="Empresa"
           value={form.empresa}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              empresa: e.target.value,
-            })
-          }
+          placeholder="Empresa"
+          onChange={(e) => update('empresa', e.target.value)}
         />
 
         <input
           required
           type="email"
-          placeholder="E-mail"
           value={form.email}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              email: e.target.value,
-            })
-          }
+          placeholder="E-mail corporativo"
+          onChange={(e) => update('email', e.target.value)}
         />
 
         <input
           required
-          placeholder="Telefone / WhatsApp"
           value={form.telefone}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              telefone: e.target.value,
-            })
-          }
+          placeholder="Telefone / WhatsApp"
+          onChange={(e) => update('telefone', e.target.value)}
         />
 
         <select
           value={form.regime}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              regime: e.target.value,
-            })
-          }
+          onChange={(e) => update('regime', e.target.value)}
         >
           <option>Lucro Real</option>
           <option>Lucro Presumido</option>
@@ -158,31 +142,19 @@ export default function EmpresaSimulator() {
         </select>
 
         <input
-          placeholder="IR devido anual"
+          required
           value={form.ir}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              ir: e.target.value,
-            })
-          }
+          placeholder="IR devido anual"
+          onChange={(e) => update('ir', e.target.value)}
         />
 
         <select
           value={form.estado}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              estado: e.target.value,
-            })
-          }
+          onChange={(e) => update('estado', e.target.value)}
         >
           <option>Minas Gerais</option>
           <option>São Paulo</option>
           <option>Rio de Janeiro</option>
-          <option>Paraná</option>
-          <option>Santa Catarina</option>
-          <option>Bahia</option>
           <option>Outro</option>
         </select>
       </div>
@@ -191,20 +163,31 @@ export default function EmpresaSimulator() {
         <span>Potencial estimado</span>
 
         <strong>
-          {potencial.toLocaleString(
-            'pt-BR',
-            {
-              style: 'currency',
-              currency: 'BRL',
-            }
-          )}
+          {potencial.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
         </strong>
 
         <p>
-          Você pode transformar imposto
-          em impacto esportivo e ESG.
+          Sua empresa pode direcionar esse valor para
+          projetos esportivos incentivados.
         </p>
       </div>
+
+      <label className="lgpdCheck">
+        <input
+          type="checkbox"
+          checked={form.lgpd}
+          onChange={(e) => update('lgpd', e.target.checked)}
+        />
+
+        <span>
+          Autorizo a IncentiVou a entrar em contato e utilizar
+          meus dados conforme a LGPD para fins comerciais e
+          apresentação de oportunidades.
+        </span>
+      </label>
 
       <button
         className="primaryBtn"
@@ -213,7 +196,7 @@ export default function EmpresaSimulator() {
       >
         {loading
           ? 'Enviando...'
-          : 'Enviar para o comercial'}
+          : 'Receber diagnóstico completo'}
       </button>
     </form>
   );
