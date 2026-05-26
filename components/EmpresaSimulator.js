@@ -39,7 +39,9 @@ export default function EmpresaSimulator() {
     }
 
     if (!form.lgpd) {
-      alert('É necessário autorizar o contato conforme a LGPD.');
+      alert(
+        'Você precisa autorizar o contato conforme a LGPD.'
+      );
       return;
     }
 
@@ -65,12 +67,12 @@ export default function EmpresaSimulator() {
     setLoading(false);
 
     if (!response.ok) {
-      alert('Erro ao enviar simulação.');
+      alert('Erro ao enviar.');
       return;
     }
 
     alert(
-      'Simulação enviada com sucesso! Nossa equipe comercial entrará em contato.'
+      'Simulação enviada com sucesso! Nossa equipe entrará em contato.'
     );
 
     setForm({
@@ -99,7 +101,7 @@ export default function EmpresaSimulator() {
 
       <p>
         Descubra rapidamente quanto sua empresa pode
-        transformar em impacto esportivo, ESG e reputação.
+        transformar em impacto esportivo e ESG.
       </p>
 
       <div className="simFields">
@@ -121,7 +123,7 @@ export default function EmpresaSimulator() {
           required
           type="email"
           value={form.email}
-          placeholder="E-mail corporativo"
+          placeholder="E-mail"
           onChange={(e) => update('email', e.target.value)}
         />
 
@@ -170,8 +172,8 @@ export default function EmpresaSimulator() {
         </strong>
 
         <p>
-          Sua empresa pode direcionar esse valor para
-          projetos esportivos incentivados.
+          Você pode transformar imposto em impacto
+          esportivo e ESG.
         </p>
       </div>
 
@@ -179,13 +181,15 @@ export default function EmpresaSimulator() {
         <input
           type="checkbox"
           checked={form.lgpd}
-          onChange={(e) => update('lgpd', e.target.checked)}
+          onChange={(e) =>
+            update('lgpd', e.target.checked)
+          }
         />
 
         <span>
-          Autorizo a IncentiVou a entrar em contato e utilizar
-          meus dados conforme a LGPD para fins comerciais e
-          apresentação de oportunidades.
+          Autorizo a IncentiVou a entrar em contato
+          comigo conforme a LGPD para apresentação
+          de oportunidades comerciais e projetos.
         </span>
       </label>
 

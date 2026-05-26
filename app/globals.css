@@ -1388,3 +1388,24 @@ ul.clean li {
   opacity:.7;
   cursor:not-allowed;
 }
+
+.lgpdCheck{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-top:18px;
+  font-size:14px;
+  color:#5d6b85;
+  line-height:1.5;
+}
+
+.lgpdCheck input{
+  width:18px;
+  height:18px;
+  margin-top:3px;
+}
+
+.primaryBtn:disabled{
+  opacity:.7;
+  cursor:not-allowed;
+}

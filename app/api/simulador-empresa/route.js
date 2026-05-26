@@ -56,7 +56,7 @@ export async function POST(req) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'IncentiVou <noreply@incentivou.com.br>',
+        from: 'IncentiVou <contato@incentivou.com.br>',
         to: emailsComerciais,
         subject: `🔥 Novo lead premium - ${empresa}`,
         html: `
