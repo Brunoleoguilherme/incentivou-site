@@ -138,7 +138,7 @@ export default function ExecutorSimulator() {
   return (
     <form className="executorPremiumCard" onSubmit={calcularEEnviar}>
       <div className="executorTop">
-        <span className="simBadge green">Para executores</span>
+        <span className="simBadge green">Simulador Executores</span>
 
         <div className="executorIcon">
           <Trophy size={28} />
@@ -332,4 +332,4 @@ export default function ExecutorSimulator() {
       )}
     </form>
   );
-}
+} 

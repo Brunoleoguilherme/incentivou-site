@@ -6,9 +6,14 @@ import {
 } from '@/components/HomeBlocks';
 
 import { CTA } from '@/components/SiteChrome';
-
 import EmpresaSimulator from '@/components/EmpresaSimulator';
 import ExecutorSimulator from '@/components/ExecutorSimulator';
+
+import {
+  Sparkles,
+  ShieldCheck,
+  Rocket,
+} from 'lucide-react';
 
 export default function Home() {
   return (
@@ -21,7 +26,7 @@ export default function Home() {
         <div className="container">
           <div className="simulatorSection premium">
             <div className="homeSimulatorHeader premiumCopy">
-              <span className="eyebrow">
+              <span className="premiumEyebrow">
                 SIMULAÇÃO INTELIGENTE
               </span>
 
@@ -38,7 +43,7 @@ export default function Home() {
 
               <div className="homeValueCards">
                 <div>
-                  <span>01</span>
+                  <span><Sparkles size={21} /></span>
                   <h3>Quem somos</h3>
                   <p>
                     Uma plataforma especializada em Lei de Incentivo ao Esporte,
@@ -47,20 +52,20 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <span>02</span>
+                  <span><ShieldCheck size={21} /></span>
                   <h3>Nosso diferencial</h3>
                   <p>
-                    Unimos consultoria estratégica, tecnologia própria, compliance,
-                    curadoria de projetos e mensuração ESG em uma única operação.
+                    Unimos consultoria estratégica, tecnologia própria,
+                    compliance, curadoria de projetos e mensuração ESG.
                   </p>
                 </div>
 
                 <div>
-                  <span>03</span>
+                  <span><Rocket size={21} /></span>
                   <h3>Carro-chefe</h3>
                   <p>
                     Diagnóstico, captação e execução integrada para empresas que
-                    querem transformar imposto em reputação, impacto e valor institucional.
+                    querem transformar imposto em reputação, impacto e valor.
                   </p>
                 </div>
               </div>

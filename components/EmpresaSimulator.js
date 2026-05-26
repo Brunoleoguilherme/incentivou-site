@@ -91,7 +91,7 @@ export default function EmpresaSimulator() {
       className="empresaSimulatorCard"
       onSubmit={calcularEEnviar}
     >
-      <span className="simBadge">Simulador</span>
+      <span className="simBadge">Simulador Empresas</span>
 
       <h3>Simule seu potencial de incentivo</h3>
 
