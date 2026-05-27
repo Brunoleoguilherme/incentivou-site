@@ -280,12 +280,16 @@ export function PageHero({
             </h2>
 
             <p
-              className="subtitle"
-              style={{
-                margin: 0,
-                textAlign: 'left',
-              }}
-            >
+  className="subtitle"
+  style={{
+    margin: 0,
+    textAlign: 'left',
+    maxWidth: '100%',
+    width: '100%',
+    whiteSpace: 'nowrap',
+    fontSize: '20px',
+  }}
+>
               Uma experiência digital completa para empresas,
               executores e gestores de projetos incentivados.
             </p>
