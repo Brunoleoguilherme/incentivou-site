@@ -60,7 +60,7 @@ export default function Home() {
 
                 <div>
                   <span><Rocket size={21} /></span>
-                  <h3>Carro-chefe</h3>
+                  <h3>Solução Integrada</h3>
                   <p>
                     Diagnóstico, captação e execução integrada para empresas que
                     querem transformar imposto em reputação, impacto e valor.
