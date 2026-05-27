@@ -3882,4 +3882,157 @@ main {
   .hero .profileSimCard strong {
     font-size: 28px !important;
   }
+}   
+
+/* =========================================================
+   HOME - BLOCO PLATAFORMA RESPONSIVO
+========================================================= */
+
+.homePlatformPreview {
+  overflow: hidden !important;
+}
+
+.homePlatformGrid {
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+}
+
+.homePlatformText,
+.homePlatformImage {
+  min-width: 0 !important;
+}
+
+.homePlatformImage {
+  overflow: hidden !important;
+}
+
+.homePlatformImage img {
+  max-width: 100% !important;
+  object-fit: contain !important;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .homePlatformPreview {
+    padding: 52px 0 !important;
+  }
+
+  .homePlatformGrid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .homePlatformText h2 {
+    font-size: 38px !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  .homePlatformText p {
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+  }
+
+  .homePlatformText .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .homePlatformImage {
+    padding: 10px !important;
+    border-radius: 22px !important;
+  }
+
+  .homePlatformImage img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 16px !important;
+  }
+
+  .hero .premiumSystem {
+    max-width: 100% !important;
+    padding: 28px 20px !important;
+  }
+
+  .hero .simulatorProfileGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero .profileSimCard {
+    min-height: auto !important;
+    padding: 26px !important;
+  }
+
+  .hero .profileSimCard strong {
+    font-size: 28px !important;
+  }
+}
+
+/* FOOTER PREMIUM */
+
+.footer {
+  padding: 56px 0 28px !important;
+  background: #fff !important;
+}
+
+.footerTop {
+  align-items: flex-start !important;
+  gap: 56px !important;
+}
+
+.footer .brand {
+  margin-bottom: 22px !important;
+}
+
+.footer p {
+  max-width: 360px !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+.footerSocial {
+  display: flex !important;
+  gap: 18px !important;
+  margin-top: 20px !important;
+}
+
+.footerSocial a {
+  font-weight: 900 !important;
+  color: var(--blue) !important;
+  text-decoration: none !important;
+}
+
+.footerBottom {
+  margin-top: 42px !important;
+  padding-top: 22px !important;
+  border-top: 1px solid #dce8f5 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.footerLegal {
+  display: flex !important;
+  gap: 26px !important;
+}
+
+.footerLegal a {
+  color: var(--muted) !important;
+  text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+  .footerTop,
+  .footerBottom {
+    display: grid !important;
+    gap: 28px !important;
+  }
+
+  .footerLegal {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
 }
