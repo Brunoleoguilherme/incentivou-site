@@ -2,13 +2,18 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-
 import {
   ArrowRight,
   Menu,
   X,
   Globe,
 } from 'lucide-react';
+
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from 'react-icons/fa';
 
 import { useState } from 'react';
 
@@ -113,22 +118,22 @@ export function Footer() {
           </p>
 
           <div className="footerSocial">
-            <a href="#" aria-label="LinkedIn">
-              in
-            </a>
+  <a href="#" aria-label="LinkedIn">
+    <FaLinkedinIn />
+  </a>
 
-            <a href="#" aria-label="Instagram">
-              ig
-            </a>
+  <a href="#" aria-label="Instagram">
+    <FaInstagram />
+  </a>
 
-            <a href="#" aria-label="Site">
-              <Globe size={18} />
-            </a>
+  <a href="#" aria-label="Site">
+    <Globe size={18} />
+  </a>
 
-            <a href="#" aria-label="YouTube">
-              yt
-            </a>
-          </div>
+  <a href="#" aria-label="YouTube">
+    <FaYoutube />
+  </a>
+</div>
         </div>
 
         {/* COLUNAS */}
