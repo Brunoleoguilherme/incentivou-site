@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { CTA, PageHero } from '@/components/SiteChrome';
 
 import {
   Award,
@@ -11,46 +10,48 @@ import {
 
 export default function Sobre() {
   const cards = [
-    {
-      Icon: Target,
-      t: 'Estratégia',
-      d: 'Visão comercial e técnica para cada cliente.',
-    },
-    {
-      Icon: Building2,
-      t: 'Institucional',
-      d: 'Comunicação adequada para empresas e governo.',
-    },
-    {
-      Icon: Award,
-      t: 'Especialização',
-      d: 'Conhecimento prático de incentivo ao esporte.',
-    },
-    {
-      Icon: Lightbulb,
-      t: 'Processo',
-      d: 'Padronização para evitar falhas e retrabalho.',
-    },
+    { Icon: Target, t: 'Estratégia', d: 'Visão comercial e técnica para cada cliente.' },
+    { Icon: Building2, t: 'Institucional', d: 'Comunicação adequada para empresas e governo.' },
+    { Icon: Award, t: 'Especialização', d: 'Conhecimento prático de incentivo ao esporte.' },
+    { Icon: Lightbulb, t: 'Processo', d: 'Padronização para evitar falhas e retrabalho.' },
   ];
 
   return (
     <main>
-      <PageHero
-  eyebrow="Sobre a IncentiVou"
-  title={
-    'Especialistas em transformar burocracia em <strong>processo, tecnologia e impacto.</strong>'
-  }
-  text="A IncentiVou simplifica a jornada da Lei de Incentivo ao Esporte com tecnologia, estratégia e conhecimento técnico aplicado."
->
-  <></>
-</PageHero>
+      <section className="pageHero">
+        <div className="container">
+          <p className="eyebrow">Sobre a IncentiVou</p>
+
+          <h1>
+            Especialistas em transformar burocracia em{' '}
+            <strong>processo, tecnologia e impacto.</strong>
+          </h1>
+
+          <p
+            className="lead"
+            style={{
+              maxWidth: '100%',
+              width: '100%',
+              fontSize: '22px',
+              lineHeight: 1.6,
+            }}
+          >
+            A IncentiVou simplifica a jornada da Lei de Incentivo ao Esporte com tecnologia, estratégia e conhecimento técnico aplicado.
+          </p>
+
+          <div className="badges">
+            <span className="badge">Tecnologia</span>
+            <span className="badge">Gestão</span>
+            <span className="badge">Compliance</span>
+            <span className="badge">Impacto</span>
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container split">
           <div>
-            <h2>
-              Uma GovTech esportiva para o mercado de incentivo.
-            </h2>
+            <h2>Uma GovTech esportiva para o mercado de incentivo.</h2>
 
             <p className="lead">
               A marca combina experiência real em projetos esportivos,
@@ -59,20 +60,9 @@ export default function Sobre() {
             </p>
 
             <ul className="clean">
-              <li>
-                <CheckCircle2 color="var(--green-2)" />
-                Metodologia própria de diagnóstico
-              </li>
-
-              <li>
-                <CheckCircle2 color="var(--green-2)" />
-                Fluxos operacionais padronizados
-              </li>
-
-              <li>
-                <CheckCircle2 color="var(--green-2)" />
-                Plataforma com dados, alertas e documentos
-              </li>
+              <li><CheckCircle2 color="var(--green-2)" /> Metodologia própria de diagnóstico</li>
+              <li><CheckCircle2 color="var(--green-2)" /> Fluxos operacionais padronizados</li>
+              <li><CheckCircle2 color="var(--green-2)" /> Plataforma com dados, alertas e documentos</li>
             </ul>
           </div>
 
@@ -95,10 +85,7 @@ export default function Sobre() {
 
       <section className="section" style={{ background: '#f7fbff' }}>
         <div className="container">
-          <div
-            className="cards"
-            style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}
-          >
+          <div className="cards" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             {cards.map(({ Icon, t, d }) => (
               <div className="card aboutPremiumCard" key={t}>
                 <div className="aboutIcon">
@@ -112,7 +99,6 @@ export default function Sobre() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
