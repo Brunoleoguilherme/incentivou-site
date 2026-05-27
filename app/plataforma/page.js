@@ -68,7 +68,7 @@ export default function Plataforma() {
           <div className="cards platformFeatureGrid">
             {platformFeatures.map(({ icon: Icon, title, text }) => (
               <div className="card platformFeatureCard" key={title}>
-                <div className="platformFeatureIcon">
+                <div className="platformFeatureIcon gradient">
                   <Icon size={30} />
                 </div>
 
