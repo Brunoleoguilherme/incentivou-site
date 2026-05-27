@@ -3561,3 +3561,74 @@ main {
 .hero .profileSimCard span {
   width: fit-content !important;
 }
+
+/* =========================================================
+   FIX DEFINITIVO - CARDS DO SIMULADOR NO HERO
+========================================================= */
+
+.hero .premiumSystem {
+  width: 100% !important;
+  max-width: 760px !important;
+  padding: 56px !important;
+  border-radius: 36px !important;
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid #dce8f5 !important;
+  box-shadow: 0 30px 90px rgba(8,34,82,.10) !important;
+}
+
+.hero .simulatorOnlyHeader {
+  display: block !important;
+  text-align: center !important;
+  margin-bottom: 34px !important;
+}
+
+.hero .simulatorProfileGrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+  width: 100% !important;
+}
+
+.hero .simulatorProfileGrid > a,
+.hero .profileSimCard {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 310px !important;
+  padding: 34px !important;
+  border-radius: 28px !important;
+  text-decoration: none !important;
+  background: #fff !important;
+  border: 1px solid #dce8f5 !important;
+  color: var(--navy) !important;
+}
+
+.hero .profileSimCard small,
+.hero .profileSimCard strong,
+.hero .profileSimCard p,
+.hero .profileSimCard span {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.hero .profileSimCard strong {
+  font-size: 34px !important;
+  line-height: 1.02 !important;
+  margin: 16px 0 !important;
+}
+
+.hero .profileSimCard p {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+  color: var(--muted) !important;
+}
+
+.hero .profileSimCard span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: fit-content !important;
+}
