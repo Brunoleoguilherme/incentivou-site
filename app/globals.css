@@ -3611,3 +3611,44 @@ main {
   font-size: 16px !important;
   font-weight: 900 !important;
 }
+
+/* EXECUTORES - COPY CARD DIAGNÓSTICO */
+
+.executorDiagnosticPanel {
+  justify-content: flex-start !important;
+}
+
+.executorCopyBox {
+  margin: 24px 0;
+  padding: 22px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(20,199,132,.08), rgba(19,104,255,.06));
+  border: 1px solid rgba(20,199,132,.16);
+}
+
+.executorCopyBox strong {
+  display: block;
+  color: var(--navy);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.executorCopyBox p {
+  margin: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+.executorCopyHighlight {
+  margin: 0 0 24px;
+  padding: 18px 20px;
+  border-left: 4px solid var(--green-2);
+  background: rgba(20,199,132,.06);
+  border-radius: 16px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.executorCopyHighlight strong {
+  color: var(--green-2);
+}

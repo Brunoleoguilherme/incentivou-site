@@ -59,9 +59,25 @@ export default function Executores() {
             <h2>Diagnóstico de aptidão técnica</h2>
 
             <p>
-              Antes de investir tempo e dinheiro, avaliamos se sua organização
-              está pronta para seguir pela Lei de Incentivo ao Esporte.
-            </p>
+  O diagnóstico identifica rapidamente se sua organização está pronta
+  para aprovar, captar e executar projetos pela Lei de Incentivo ao
+  Esporte com mais segurança.
+</p>
+
+<div className="executorCopyBox">
+  <strong>Evite retrabalho, atrasos e reprovações.</strong>
+
+  <p>
+    Analisamos documentação, regularidade, estrutura técnica e capacidade
+    de execução para indicar os próximos passos com clareza.
+  </p>
+</div>
+
+<div className="executorCopyHighlight">
+  <strong>Resultado prático:</strong>
+  um mapa de aptidão com riscos, pendências e oportunidades para transformar
+  sua ideia em projeto captável.
+</div>
 
             <ul className="clean">
               {executorItems.map((item) => (
