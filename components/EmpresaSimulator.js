@@ -91,7 +91,28 @@ export default function EmpresaSimulator() {
       className="empresaSimulatorCard"
       onSubmit={calcularEEnviar}
     >
-      <span className="simBadge">Simulador Empresas</span>
+      <span
+  className="simBadge blue"
+  style={{
+    width: '290px',
+    minWidth: '290px',
+    maxWidth: '290px',
+    height: '52px',
+    minHeight: '52px',
+    padding: '0 28px',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxSizing: 'border-box',
+    whiteSpace: 'nowrap',
+    fontSize: '18px',
+    fontWeight: '800',
+    letterSpacing: '0.12em',
+    textTransform: 'uppercase',
+  }}
+>
+  Simulador Empresas
+</span>
 
       <h3>Simule seu potencial de incentivo</h3>
 

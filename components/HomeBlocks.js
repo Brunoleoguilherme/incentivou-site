@@ -158,9 +158,16 @@ export function Audiences() {
   return (
     <section className="section" style={{ paddingTop: 0 }}>
       <div className="container split">
+
+        {/* EMPRESAS */}
         <div className="panel blue">
-          <h2 style={{ fontSize: 32 }}>Para <strong>Empresas</strong></h2>
-          <p>Incentivar nunca foi tão estratégico.</p>
+          <h2 style={{ fontSize: 32 }}>
+            Para <strong>Empresas</strong>
+          </h2>
+
+          <p>
+            Incentivar nunca foi tão estratégico.
+          </p>
 
           <ul className="clean">
             {empresaItems.map((item) => (
@@ -175,9 +182,15 @@ export function Audiences() {
           </Link>
         </div>
 
+        {/* EXECUTORES */}
         <div className="panel">
-          <h2 style={{ fontSize: 32 }}>Para <strong>Executores / OSCs</strong></h2>
-          <p>Apoiamos seu projeto a transformar vidas.</p>
+          <h2 style={{ fontSize: 32 }}>
+            Para <strong>Executores/Proponentes</strong>
+          </h2>
+
+          <p>
+            Apoiamos Associações, Institutos, Ong&apos;s em seus projetos.
+          </p>
 
           <ul className="clean">
             {executorItems.map((item) => (
@@ -191,6 +204,7 @@ export function Audiences() {
             Sou executor de projeto
           </Link>
         </div>
+
       </div>
     </section>
   );

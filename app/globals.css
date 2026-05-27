@@ -2694,67 +2694,37 @@ main {
   }
 }
 
-/* HOME PREMIUM AJUSTES */
-
-.premiumEyebrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 26px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #e9fff4, #eef6ff);
-  border: 1px solid rgba(20, 199, 132, 0.28);
-  color: #10b981;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  box-shadow: 0 14px 34px rgba(20, 199, 132, 0.14);
-}
-
-.homeValueCards > div > span {
-  width: 52px;
-  height: 52px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #1368ff, #14c784);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 16px 36px rgba(19, 104, 255, 0.22);
-}
-
-.simBadge.blue {
-  background: #eef4ff;
-  color: #1368ff;
-}
-
-.simBadge.green {
-  background: #e9fff4;
-  color: #10b981;
-}
-
-/* BADGES PREMIUM */
+/* =========================================================
+   BADGES PREMIUM PADRONIZADOS
+========================================================= */
 
 .premiumEyebrow,
 .simBadge.blue,
 .simBadge.green {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  min-height: 42px;
-  padding: 0 24px;
+  width: 290px !important;
+  min-width: 290px !important;
+  max-width: 290px !important;
 
-  border-radius: 999px;
+  height: 52px !important;
+  min-height: 52px !important;
 
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  padding: 0 26px !important;
 
-  box-shadow:
-    0 10px 25px rgba(19, 104, 255, 0.12),
-    0 4px 12px rgba(20, 199, 132, 0.08);
+  border-radius: 999px !important;
+
+  font-size: 14px !important;
+  font-weight: 900 !important;
+
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+
+  white-space: nowrap !important;
+
+  box-sizing: border-box !important;
 }
 
 /* TOPO */
@@ -2762,13 +2732,16 @@ main {
 .premiumEyebrow {
   background: linear-gradient(
     135deg,
-    rgba(20, 199, 132, 0.14),
-    rgba(20, 199, 132, 0.05)
-  );
+    rgba(20,199,132,.14),
+    rgba(20,199,132,.05)
+  ) !important;
 
-  color: #10b981;
+  border: 1px solid rgba(20,199,132,.18) !important;
 
-  border: 1px solid rgba(20, 199, 132, 0.18);
+  color: #10b981 !important;
+
+  box-shadow:
+    0 12px 30px rgba(20,199,132,.12) !important;
 }
 
 /* EMPRESAS */
@@ -2776,13 +2749,16 @@ main {
 .simBadge.blue {
   background: linear-gradient(
     135deg,
-    rgba(19, 104, 255, 0.12),
-    rgba(19, 104, 255, 0.04)
-  );
+    rgba(19,104,255,.12),
+    rgba(19,104,255,.04)
+  ) !important;
 
-  color: #1368ff;
+  border: 1px solid rgba(19,104,255,.15) !important;
 
-  border: 1px solid rgba(19, 104, 255, 0.15);
+  color: #1368ff !important;
+
+  box-shadow:
+    0 12px 30px rgba(19,104,255,.10) !important;
 }
 
 /* EXECUTORES */
@@ -2790,11 +2766,80 @@ main {
 .simBadge.green {
   background: linear-gradient(
     135deg,
-    rgba(20, 199, 132, 0.14),
-    rgba(20, 199, 132, 0.05)
-  );
+    rgba(20,199,132,.14),
+    rgba(20,199,132,.05)
+  ) !important;
 
-  color: #10b981;
+  border: 1px solid rgba(20,199,132,.18) !important;
 
-  border: 1px solid rgba(20, 199, 132, 0.18);
+  color: #10b981 !important;
+
+  box-shadow:
+    0 12px 30px rgba(20,199,132,.10) !important;
+}
+
+/* CORREÇÃO FINAL - BADGE EMPRESAS IGUAL AOS OUTROS */
+
+.heroSimWrapper .empresaSimulatorCard > .simBadge.blue {
+  width: 290px !important;
+  min-width: 290px !important;
+  max-width: 290px !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  padding: 0 26px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+/* CORRIGIR ÍCONES DOS CARDS DA HOME */
+
+.homeValueCards > div > span {
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  min-height: 62px !important;
+  padding: 0 !important;
+}
+
+.homeValueCards > div > span svg {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  stroke-width: 2.4 !important;
+  display: block !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   AJUSTE CARDS DE SOLUÇÕES - HOME
+========================================================= */
+
+.cards .card {
+  text-align: center;
+}
+
+.cards .card .icon {
+  margin: 0 auto 22px !important;
+}
+
+.cards .card h3 {
+  font-size: 22px !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.cards .card p {
+  text-align: center;
+}
+
+@media (min-width: 1021px) {
+  .cards .card h3 {
+    font-size: 20px !important;
+  }
 }
