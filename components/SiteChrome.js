@@ -92,144 +92,65 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="container footerGrid">
-        <div>
-          <Logo />
+    <footer className="footer footerPremium">
+      <div className="container footerPremiumGrid">
+        <div className="footerBrandBox">
+          <Link className="brand" href="/">
+            <img src="/logo-incentivou.png" alt="IncentiVou" />
+          </Link>
 
           <p>
             A plataforma inteligente da Lei de Incentivo ao Esporte.
           </p>
 
-          <div
-            style={{
-              display: 'flex',
-              gap: 14,
-              marginTop: 18,
-              alignItems: 'center',
-              color: 'var(--blue)',
-            }}
-          >
-            <span style={{ fontWeight: 900 }}>in</span>
-
-            <span style={{ fontWeight: 900 }}>ig</span>
-
-            <Globe size={20} />
-
-            <span style={{ fontWeight: 900 }}>yt</span>
+          <div className="footerSocial">
+            <a href="#">in</a>
+            <a href="#">ig</a>
+            <a href="#">🌐</a>
+            <a href="#">yt</a>
           </div>
         </div>
 
-        <div>
+        <div className="footerColumn">
           <h4>Soluções</h4>
-
-          <Link href="/solucoes#plano-start">
-            Plano Start
-          </Link>
-
-          <Link href="/solucoes#projeto-aprovado">
-            Projeto Aprovado
-          </Link>
-
-          <Link href="/solucoes#captacao-inteligente">
-            Captação Inteligente
-          </Link>
-
-          <Link href="/solucoes#execucao-segura">
-            Execução Segura
-          </Link>
+          <a href="/solucoes">Plano Start</a>
+          <a href="/solucoes">Projeto Aprovado</a>
+          <a href="/solucoes">Captação Inteligente</a>
+          <a href="/solucoes">Execução Segura</a>
         </div>
 
-        <div>
+        <div className="footerColumn">
           <h4>Para Empresas</h4>
-
-          <Link href="/empresas">
-            Como funciona
-          </Link>
-
-          <Link href="/empresas#beneficios">
-            Benefícios fiscais
-          </Link>
-
-          <Link href="/plataforma#marketplace">
-            Marketplace
-          </Link>
-
-          <Link href="/contato">
-            Simular incentivo
-          </Link>
+          <a href="/empresas">Como funciona</a>
+          <a href="/empresas">Benefícios fiscais</a>
+          <a href="/empresas">Marketplace</a>
+          <a href="/empresas">Simular incentivo</a>
         </div>
 
-        <div>
+        <div className="footerColumn">
           <h4>Para Executores</h4>
-
-          <Link href="/executores">
-            Como funciona
-          </Link>
-
-          <Link href="/solucoes">
-            Aprovação
-          </Link>
-
-          <Link href="/solucoes">
-            Captação
-          </Link>
-
-          <Link href="/solucoes">
-            Prestação de contas
-          </Link>
+          <a href="/executores">Como funciona</a>
+          <a href="/executores">Aprovação</a>
+          <a href="/executores">Captação</a>
+          <a href="/executores">Prestação de contas</a>
         </div>
 
-        <div>
+        <div className="footerColumn">
           <h4>Institucional</h4>
-
-          <Link href="/sobre">
-            Sobre nós
-          </Link>
-
-          <Link href="/blog">
-            Conteúdo
-          </Link>
-
-          <Link href="/contato">
-            Contato
-          </Link>
-
-          <Link href="/politica-de-privacidade">
-            Privacidade
-          </Link>
+          <a href="/sobre">Sobre nós</a>
+          <a href="/blog">Conteúdo</a>
+          <a href="/contato">Contato</a>
+          <a href="/privacidade">Privacidade</a>
         </div>
       </div>
 
-      <div
-        className="container"
-        style={{
-          borderTop: '1px solid var(--line)',
-          marginTop: 34,
-          paddingTop: 18,
-          display: 'flex',
-          justifyContent: 'space-between',
-          gap: 16,
-          flexWrap: 'wrap',
-          color: 'var(--muted)',
-          fontSize: 13,
-        }}
-      >
-        <span>
-          © 2026 IncentiVou. Todos os direitos reservados.
-        </span>
+      <div className="container footerPremiumBottom">
+        <p>© 2026 IncentiVou. Todos os direitos reservados.</p>
 
-        <span>
-          <Link href="/politica-de-privacidade">
-            Política de Privacidade
-          </Link>
-
-          {' · '}
-
-          <Link href="/termos-de-uso">
-            Termos de Uso
-          </Link>
-        </span>
+        <div>
+          <a href="/privacidade">Política de Privacidade</a>
+          <a href="/termos">Termos de Uso</a>
+        </div>
       </div>
     </footer>
   );
