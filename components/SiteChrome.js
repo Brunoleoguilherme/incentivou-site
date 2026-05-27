@@ -253,7 +253,17 @@ export function PageHero({
             }}
           />
 
-          <p className="lead">{text}</p>
+          <p
+  className="lead"
+  style={{
+    maxWidth: '100%',
+    width: '100%',
+    fontSize: '22px',
+    lineHeight: 1.6,
+  }}
+>
+  {text}
+</p>
 
           <div className="badges">
             <span className="badge">Tecnologia</span>
@@ -295,9 +305,9 @@ export function CTA() {
       <div className="container ctaBand">
         <div>
           <h2 style={{ margin: 0 }}>
-            O esporte transforma.
+            A Incentivou te ajuda a transformar
             <br />
-            A IncentiVou torna isso possível.
+             o potencial do esporte em grandes resultados.
           </h2>
 
           <p
@@ -306,8 +316,7 @@ export function CTA() {
               opacity: 0.9,
             }}
           >
-            Tecnologia, estratégia e impacto para um futuro
-            melhor.
+            Descomplicamos os processos da Lei de Incentivo.
           </p>
         </div>
 
