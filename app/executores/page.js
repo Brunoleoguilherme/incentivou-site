@@ -1,4 +1,4 @@
-import { CTA, PageHero } from '@/components/SiteChrome';
+import { PageHero } from '@/components/SiteChrome';
 import { executorItems } from '@/components/data';
 import ExecutorSimulator from '@/components/ExecutorSimulator';
 
@@ -42,10 +42,12 @@ export default function Executores() {
       <PageHero
         eyebrow="Para OSCs, clubes e executores"
         title={
-          'Seu projeto esportivo com mais chance de <strong>aprovação, captação e execução segura.</strong>'
+          'Seu projeto esportivo com mais chances de <strong>aprovação, captação e execução segura.</strong>'
         }
         text="A IncentiVou organiza o caminho técnico para transformar sua ideia em projeto aprovado, captável e bem executado."
-      />
+      >
+        <></>
+      </PageHero>
 
       <section className="section executorPremiumSection">
         <div className="container executorPremiumGrid">
@@ -54,9 +56,7 @@ export default function Executores() {
               Diagnóstico técnico
             </span>
 
-            <h2>
-              Diagnóstico de aptidão técnica
-            </h2>
+            <h2>Diagnóstico de aptidão técnica</h2>
 
             <p>
               Antes de investir tempo e dinheiro, avaliamos se sua organização
@@ -109,8 +109,6 @@ export default function Executores() {
           </div>
         </div>
       </section>
-
-      <CTA />
     </main>
   );
 }
