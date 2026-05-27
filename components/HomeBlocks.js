@@ -83,23 +83,6 @@ export function HeroHome() {
               Sou executor de projeto
             </Link>
           </div>
-
-          <div className="stats">
-            <div className="stat">
-              <div className="statIcon"><ShieldCheck /></div>
-              <div>+300<small>Projetos aprovados</small></div>
-            </div>
-
-            <div className="stat">
-              <div className="statIcon"><Building2 /></div>
-              <div>+150<small>Empresas parceiras</small></div>
-            </div>
-
-            <div className="stat">
-              <div className="statIcon"><DollarSign /></div>
-              <div>+R$ 120 mi<small>Captados para o esporte</small></div>
-            </div>
-          </div>
         </div>
 
         <DashboardMockup />
