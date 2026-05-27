@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 
 import {
   ArrowRight,
@@ -25,27 +24,36 @@ export function DashboardMockup() {
         <span>Simulação Inteligente</span>
         <h3>Simule seu potencial</h3>
         <p>
-          Escolha seu perfil e descubra rapidamente oportunidades, riscos e potencial dentro da Lei de Incentivo.
+          Escolha seu perfil e descubra rapidamente oportunidades, riscos e
+          potencial dentro da Lei de Incentivo.
         </p>
       </div>
 
       <div className="simulatorProfileGrid">
-        <Link href="/empresas#simulador-empresa" className="profileSimCard empresaSimCard">
+        <Link
+          href="/empresas#simulador-empresa"
+          className="profileSimCard empresaSimCard"
+        >
           <small>Para empresas</small>
           <strong>Quanto posso incentivar?</strong>
           <p>
-            Calcule o potencial de destinação fiscal e encontre projetos alinhados ao seu posicionamento.
+            Calcule o potencial de destinação fiscal e encontre projetos
+            alinhados ao seu posicionamento.
           </p>
           <span>
             Simular como empresa <ArrowRight size={16} />
           </span>
         </Link>
 
-        <Link href="/executores#simulador-executores" className="profileSimCard executorSimCard">
+        <Link
+          href="/executores#simulador-executores"
+          className="profileSimCard executorSimCard"
+        >
           <small>Para executores</small>
           <strong>Meu projeto está apto?</strong>
           <p>
-            Faça um diagnóstico inicial da sua organização, documentação e potencial de aprovação/captação.
+            Faça um diagnóstico inicial da sua organização, documentação e
+            potencial de aprovação/captação.
           </p>
           <span>
             Simular como executor <ArrowRight size={16} />
@@ -107,11 +115,14 @@ export function SolutionsCards() {
   return (
     <section className="section center">
       <div className="container">
-        <h2>Soluções <strong>integradas</strong> para cada etapa do projeto</h2>
+        <h2>
+          Soluções <strong>integradas</strong> para cada etapa do projeto
+        </h2>
 
         <p className="subtitle">
           Da primeira análise até a prestação de contas, a IncentiVou organiza
-          todo o ciclo da Lei de Incentivo com processo, tecnologia e segurança técnica.
+          todo o ciclo da Lei de Incentivo com processo, tecnologia e segurança
+          técnica.
         </p>
 
         <div className="cards">
@@ -140,16 +151,12 @@ export function Audiences() {
   return (
     <section className="section" style={{ paddingTop: 0 }}>
       <div className="container split">
-
-        {/* EMPRESAS */}
         <div className="panel blue">
           <h2 style={{ fontSize: 32 }}>
             Para <strong>Empresas</strong>
           </h2>
 
-          <p>
-            Incentivar nunca foi tão estratégico.
-          </p>
+          <p>Incentivar nunca foi tão estratégico.</p>
 
           <ul className="clean">
             {empresaItems.map((item) => (
@@ -164,7 +171,6 @@ export function Audiences() {
           </Link>
         </div>
 
-        {/* EXECUTORES */}
         <div className="panel">
           <h2 style={{ fontSize: 32 }}>
             Para <strong>Executores/Proponentes</strong>
@@ -186,7 +192,6 @@ export function Audiences() {
             Sou executor de projeto
           </Link>
         </div>
-
       </div>
     </section>
   );
@@ -196,7 +201,9 @@ export function PlatformSummary() {
   return (
     <section className="section center" style={{ paddingTop: 10 }}>
       <div className="container">
-        <h2>Plataforma <strong>inteligente</strong> que gera resultados</h2>
+        <h2>
+          Plataforma <strong>inteligente</strong> que gera resultados
+        </h2>
 
         <div className="featureGrid">
           {platformFeatures.map(({ icon: Icon, title, text }) => (
