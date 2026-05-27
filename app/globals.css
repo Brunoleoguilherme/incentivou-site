@@ -3503,3 +3503,61 @@ main {
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
+
+/* RESTAURAR CARD SIMULAÇÃO DO HERO */
+
+.hero .premiumSystem {
+  width: 100% !important;
+  max-width: 760px !important;
+  padding: 56px !important;
+  border-radius: 36px !important;
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid #dce8f5 !important;
+  box-shadow: 0 30px 90px rgba(8,34,82,.10) !important;
+}
+
+.hero .simulatorOnlyHeader {
+  text-align: center !important;
+  margin-bottom: 34px !important;
+}
+
+.hero .simulatorProfileGrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 28px !important;
+}
+
+.hero .profileSimCard {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 310px !important;
+  padding: 34px !important;
+  border-radius: 28px !important;
+  text-decoration: none !important;
+  background: #fff !important;
+  border: 1px solid #dce8f5 !important;
+}
+
+.hero .profileSimCard small {
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+.hero .profileSimCard strong {
+  font-size: 34px !important;
+  line-height: 1.02 !important;
+  color: var(--navy) !important;
+}
+
+.hero .profileSimCard p {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+  color: var(--muted) !important;
+}
+
+.hero .profileSimCard span {
+  width: fit-content !important;
+}
