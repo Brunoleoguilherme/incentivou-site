@@ -533,87 +533,30 @@ p.lead {
   }
 }
 
-/* =========================================================
-   STRIP PREMIUM EXECUTORES
-========================================================= */
+/* STRIP */
 
 .strip {
-  border-top: 1px solid #dfe7f3;
-  border-bottom: 1px solid #dfe7f3;
-  background: rgba(255,255,255,.72);
-  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: white;
 }
 
 .stripGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-
-  gap: 0;
-
-  min-height: 88px;
+  text-align: center;
 }
 
 .stripItem {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-
-  color: #0f172a;
-
-  height: 88px;
-
-  transition: all .25s ease;
+  padding: 24px 12px;
+  border-right: 1px solid var(--line);
+  color: var(--blue);
+  font-weight: 900;
 }
 
-/* DIVISÓRIAS */
-
-.stripItem:not(:last-child)::after {
-  content: '';
-
-  position: absolute;
-  right: 0;
-  top: 22px;
-
-  width: 1px;
-  height: 44px;
-
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(15,23,42,.12),
-    transparent
-  );
-}
-
-/* HOVER */
-
-.stripItem:hover {
-  color: #10b981;
-  transform: translateY(-1px);
-}
-
-/* RESPONSIVO */
-
-@media (max-width: 768px) {
-  .stripGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stripItem {
-    font-size: 17px;
-    height: 72px;
-  }
-
-  .stripItem:not(:last-child)::after {
-    display: none;
-  }
+.stripItem:last-child {
+  border-right: 0;
+  color: var(--green-2);
 }
 
 /* SECTIONS */
@@ -3016,4 +2959,109 @@ main {
   .executorRecursosGrid {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* =========================================================
+   FIX TAGS DO PAGEHERO
+========================================================= */
+
+.pageHeroTags,
+.heroTags,
+.heroMeta,
+.heroKeywords {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin: 24px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+.pageHeroTags span,
+.heroTags span,
+.heroMeta span,
+.heroKeywords span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 38px !important;
+  padding: 0 16px !important;
+  border-radius: 999px !important;
+  background: #eef6ff !important;
+  color: #1368ff !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+/* =========================================================
+   PAGE HERO BADGES PREMIUM
+========================================================= */
+
+.pageHero .badges {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+
+  margin-top: 28px !important;
+  padding: 0 !important;
+}
+
+.pageHero .badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-height: 40px !important;
+  padding: 0 18px !important;
+
+  border-radius: 999px !important;
+
+  background: linear-gradient(
+    135deg,
+    rgba(19, 104, 255, 0.10),
+    rgba(20, 199, 132, 0.10)
+  ) !important;
+
+  border: 1px solid rgba(19, 104, 255, 0.12) !important;
+
+  color: var(--navy) !important;
+
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+
+  box-shadow: 0 10px 26px rgba(8, 34, 82, 0.06) !important;
+}
+
+/* =========================================================
+   PAGE HERO CARD SPACING
+========================================================= */
+
+.pageHero .panel {
+  margin-top: 72px !important;
+}
+
+.aboutPremiumCard {
+  text-align: center;
+}
+
+.aboutIcon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 24px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1368ff, #14c784);
+  color: white;
+  box-shadow:
+    0 18px 40px rgba(19,104,255,.18),
+    0 10px 22px rgba(20,199,132,.16);
+}
+
+.aboutIcon svg {
+  stroke-width: 2.5;
 }
