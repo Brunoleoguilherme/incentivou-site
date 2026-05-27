@@ -8,9 +8,6 @@ import {
   Menu,
   X,
   Globe,
-  Instagram,
-  Linkedin,
-  Youtube,
 } from 'lucide-react';
 
 import { useState } from 'react';
@@ -97,41 +94,47 @@ export function Footer() {
   return (
     <footer className="footer footerPremium">
       <div className="container footerPremiumGrid">
-        <div className="footerBrandBox">
-          <Link className="brand" href="/">
+        
+        {/* COLUNA LOGO */}
+        <div className="footerBrandPremium">
+          <Link className="footerLogo" href="/">
             <Image
               src="/images/incentivou_logo_transparente.png"
               alt="IncentiVou"
-              width={260}
-              height={90}
+              width={240}
+              height={70}
+              priority
             />
           </Link>
 
           <p>
-            A plataforma inteligente da Lei de Incentivo ao Esporte.
+            Plataforma inteligente para gestão, captação,
+            compliance e execução de projetos incentivados.
           </p>
 
           <div className="footerSocial">
             <a href="#" aria-label="LinkedIn">
-              <Linkedin size={20} />
+              in
             </a>
 
             <a href="#" aria-label="Instagram">
-              <Instagram size={20} />
+              ig
             </a>
 
             <a href="#" aria-label="Site">
-              <Globe size={20} />
+              <Globe size={18} />
             </a>
 
             <a href="#" aria-label="YouTube">
-              <Youtube size={20} />
+              yt
             </a>
           </div>
         </div>
 
+        {/* COLUNAS */}
         <div className="footerColumn">
           <h4>Soluções</h4>
+
           <a href="/solucoes">Plano Start</a>
           <a href="/solucoes">Projeto Aprovado</a>
           <a href="/solucoes">Captação Inteligente</a>
@@ -140,6 +143,7 @@ export function Footer() {
 
         <div className="footerColumn">
           <h4>Para Empresas</h4>
+
           <a href="/empresas">Como funciona</a>
           <a href="/empresas">Benefícios fiscais</a>
           <a href="/empresas">Marketplace</a>
@@ -148,6 +152,7 @@ export function Footer() {
 
         <div className="footerColumn">
           <h4>Para Executores</h4>
+
           <a href="/executores">Como funciona</a>
           <a href="/executores">Aprovação</a>
           <a href="/executores">Captação</a>
@@ -156,6 +161,7 @@ export function Footer() {
 
         <div className="footerColumn">
           <h4>Institucional</h4>
+
           <a href="/sobre">Sobre nós</a>
           <a href="/blog">Conteúdo</a>
           <a href="/contato">Contato</a>
@@ -163,10 +169,11 @@ export function Footer() {
         </div>
       </div>
 
+      {/* LINHA INFERIOR */}
       <div className="container footerPremiumBottom">
         <p>© 2026 IncentiVou. Todos os direitos reservados.</p>
 
-        <div>
+        <div className="footerBottomLinks">
           <a href="/privacidade">Política de Privacidade</a>
           <a href="/termos">Termos de Uso</a>
         </div>
