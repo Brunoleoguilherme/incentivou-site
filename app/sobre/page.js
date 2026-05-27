@@ -36,12 +36,14 @@ export default function Sobre() {
   return (
     <main>
       <PageHero
-        eyebrow="Sobre a IncentiVou"
-        title={
-          'Especialistas em transformar burocracia em <strong>processo, tecnologia e impacto.</strong>'
-        }
-        text="A IncentiVou simplifica a jornada da Lei de Incentivo ao Esporte com tecnologia, estratégia e conhecimento técnico aplicado."
-      />
+  eyebrow="Sobre a IncentiVou"
+  title={
+    'Especialistas em transformar burocracia em <strong>processo, tecnologia e impacto.</strong>'
+  }
+  text="A IncentiVou simplifica a jornada da Lei de Incentivo ao Esporte com tecnologia, estratégia e conhecimento técnico aplicado."
+>
+  <></>
+</PageHero>
 
       <section className="section">
         <div className="container split">
@@ -110,7 +112,7 @@ export default function Sobre() {
           </div>
         </div>
       </section>
-      
+
     </main>
   );
 }
