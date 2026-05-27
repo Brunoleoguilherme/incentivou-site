@@ -1,4 +1,4 @@
-import { PageHero } from '@/components/SiteChrome';
+import { CTA, PageHero } from '@/components/SiteChrome';
 import { executorItems } from '@/components/data';
 import ExecutorSimulator from '@/components/ExecutorSimulator';
 
