@@ -8,6 +8,9 @@ import {
   Menu,
   X,
   Globe,
+  Instagram,
+  Linkedin,
+  Youtube,
 } from 'lucide-react';
 
 import { useState } from 'react';
@@ -25,14 +28,14 @@ const nav = [
 export function Logo() {
   return (
     <Link href="/" className="logo">
-  <Image
-    src="/images/incentivou_logo_transparente.png"
-    alt="IncentiVou"
-    width={520}
-    height={180}  
-    priority
-  />
-</Link>
+      <Image
+        src="/images/incentivou_logo_transparente.png"
+        alt="IncentiVou"
+        width={520}
+        height={180}
+        priority
+      />
+    </Link>
   );
 }
 
@@ -96,7 +99,12 @@ export function Footer() {
       <div className="container footerPremiumGrid">
         <div className="footerBrandBox">
           <Link className="brand" href="/">
-            <img src="/logo-incentivou.png" alt="IncentiVou" />
+            <Image
+              src="/images/incentivou_logo_transparente.png"
+              alt="IncentiVou"
+              width={260}
+              height={90}
+            />
           </Link>
 
           <p>
@@ -104,10 +112,21 @@ export function Footer() {
           </p>
 
           <div className="footerSocial">
-            <a href="#">in</a>
-            <a href="#">ig</a>
-            <a href="#">🌐</a>
-            <a href="#">yt</a>
+            <a href="#" aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+
+            <a href="#" aria-label="Instagram">
+              <Instagram size={20} />
+            </a>
+
+            <a href="#" aria-label="Site">
+              <Globe size={20} />
+            </a>
+
+            <a href="#" aria-label="YouTube">
+              <Youtube size={20} />
+            </a>
           </div>
         </div>
 
@@ -156,12 +175,7 @@ export function Footer() {
   );
 }
 
-export function PageHero({
-  eyebrow,
-  title,
-  text,
-  children,
-}) {
+export function PageHero({ eyebrow, title, text, children }) {
   return (
     <section className="pageHero">
       <div className="container pageGrid">
@@ -175,16 +189,16 @@ export function PageHero({
           />
 
           <p
-  className="lead"
-  style={{
-    maxWidth: '100%',
-    width: '100%',
-    fontSize: '22px',
-    lineHeight: 1.6,
-  }}
->
-  {text}
-</p>
+            className="lead"
+            style={{
+              maxWidth: '100%',
+              width: '100%',
+              fontSize: '22px',
+              lineHeight: 1.6,
+            }}
+          >
+            {text}
+          </p>
 
           <div className="badges">
             <span className="badge">Tecnologia</span>
@@ -201,16 +215,16 @@ export function PageHero({
             </h2>
 
             <p
-  className="subtitle"
-  style={{
-    margin: 0,
-    textAlign: 'left',
-    maxWidth: '100%',
-    width: '100%',
-    whiteSpace: 'nowrap',
-    fontSize: '20px',
-  }}
->
+              className="subtitle"
+              style={{
+                margin: 0,
+                textAlign: 'left',
+                maxWidth: '100%',
+                width: '100%',
+                whiteSpace: 'nowrap',
+                fontSize: '20px',
+              }}
+            >
               Uma experiência digital completa para empresas,
               executores e gestores de projetos incentivados.
             </p>
@@ -223,16 +237,13 @@ export function PageHero({
 
 export function CTA() {
   return (
-    <section
-      className="section"
-      style={{ paddingTop: 20 }}
-    >
+    <section className="section" style={{ paddingTop: 20 }}>
       <div className="container ctaBand">
         <div>
           <h2 style={{ margin: 0 }}>
             A Incentivou te ajuda a transformar
             <br />
-             o potencial do esporte em grandes resultados.
+            o potencial do esporte em grandes resultados.
           </h2>
 
           <p
