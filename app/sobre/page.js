@@ -40,7 +40,7 @@ export default function Sobre() {
         title={
           'Especialistas em transformar burocracia em <strong>processo, tecnologia e impacto.</strong>'
         }
-        text="A IncentiVou nasce para simplificar a jornada da Lei de Incentivo ao Esporte, unindo conhecimento técnico, visão comercial e tecnologia aplicada."
+        text="A IncentiVou simplifica a jornada da Lei de Incentivo ao Esporte com tecnologia, estratégia e conhecimento técnico aplicado."
       />
 
       <section className="section">
@@ -110,8 +110,7 @@ export default function Sobre() {
           </div>
         </div>
       </section>
-
-      <CTA />
+      
     </main>
   );
 }
