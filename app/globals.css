@@ -3484,3 +3484,22 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+/* RESTAURA HERO ORIGINAL DA HOME */
+
+.hero .empresaSimulatorCard,
+.hero .executorPremiumCard,
+.hero .executorSimulator {
+  display: none !important;
+}
+
+.hero .premiumSystem {
+  display: block !important;
+  max-width: 680px;
+}
+
+.hero .simulatorProfileGrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}

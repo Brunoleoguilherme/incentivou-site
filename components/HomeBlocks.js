@@ -30,8 +30,7 @@ export function DashboardMockup() {
       </div>
 
       <div className="simulatorProfileGrid">
-        <Link href="/empresas#simulador-empresa"
-  className="profileSimCard empresaSimCard">
+        <Link href="/empresas#simulador-empresa" className="profileSimCard empresaSimCard">
           <small>Para empresas</small>
           <strong>Quanto posso incentivar?</strong>
           <p>
@@ -42,7 +41,7 @@ export function DashboardMockup() {
           </span>
         </Link>
 
-        <Link href="/simulador#executores" className="profileSimCard executorSimCard">
+        <Link href="/executores#simulador-executores" className="profileSimCard executorSimCard">
           <small>Para executores</small>
           <strong>Meu projeto está apto?</strong>
           <p>
