@@ -211,7 +211,7 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, text, children }) {
+export function PageHero({ eyebrow, title, text, children, hideCard = false }) {
   return (
     <section className="pageHero">
       <div className="container pageGrid">
@@ -244,7 +244,9 @@ export function PageHero({ eyebrow, title, text, children }) {
           </div>
         </div>
 
-        {children || (
+        {children ? (
+          children
+        ) : !hideCard ? (
           <div className="panel">
             <h2>
               <strong>Incentive</strong> o agora.
@@ -261,11 +263,11 @@ export function PageHero({ eyebrow, title, text, children }) {
                 fontSize: '20px',
               }}
             >
-              Uma experiência digital completa para empresas,
-              executores e gestores de projetos incentivados.
+              Uma experiência digital completa para empresas, executores e
+              gestores de projetos incentivados.
             </p>
           </div>
-        )}
+        ) : null}
       </div>
     </section>
   );
@@ -277,9 +279,9 @@ export function CTA() {
       <div className="container ctaBand">
         <div>
           <h2 style={{ margin: 0 }}>
-            A Incentivou te ajuda a transformar
+            Ferramentas e estratégias para descomplicar a Lei de Incentivo.
             <br />
-            o potencial do esporte em grandes resultados.
+            Incentive o Agora!
           </h2>
 
           <p
