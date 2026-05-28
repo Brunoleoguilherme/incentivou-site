@@ -1,7 +1,10 @@
 'use client';
 
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+
 import {
   ArrowRight,
   Menu,
@@ -13,6 +16,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaYoutube,
+  FaFacebookF,
 } from 'react-icons/fa';
 
 import { useState } from 'react';
@@ -124,7 +128,7 @@ export function Footer() {
     rel="noreferrer"
     aria-label="LinkedIn"
   >
-    <Linkedin size={20} />
+    <FaLinkedinIn size={18} />
   </a>
 
   <a
@@ -133,7 +137,7 @@ export function Footer() {
     rel="noreferrer"
     aria-label="Instagram"
   >
-    <Instagram size={20} />
+    <FaInstagram size={18} />
   </a>
 
   <a
@@ -142,7 +146,7 @@ export function Footer() {
     rel="noreferrer"
     aria-label="Facebook"
   >
-    <Globe size={20} />
+    <FaFacebookF size={18} />
   </a>
 
   <a
@@ -151,7 +155,7 @@ export function Footer() {
     rel="noreferrer"
     aria-label="YouTube"
   >
-    <Youtube size={20} />
+    <FaYoutube size={18} />
   </a>
 </div>
         </div>
