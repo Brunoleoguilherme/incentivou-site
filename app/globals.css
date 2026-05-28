@@ -5013,3 +5013,97 @@ main {
     font-size: 34px !important;
   }
 }
+
+/* =========================
+   PRIVACIDADE PREMIUM
+========================= */
+
+.privacyPremiumCard {
+  background:
+    radial-gradient(circle at top left, rgba(19,104,255,.06), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(20,199,132,.10), transparent 34%),
+    #fff;
+  border: 1px solid #dce8f5;
+  border-radius: 34px;
+  padding: 54px;
+  box-shadow: 0 24px 70px rgba(8,34,82,.08);
+}
+
+.privacySection + .privacySection {
+  margin-top: 42px;
+}
+
+.privacySection h2 {
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+.privacySection p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.privacySection ul {
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.privacySection li {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.privacyContactBox {
+  margin-top: 22px;
+  background:
+    radial-gradient(circle at top left, rgba(19,104,255,.05), transparent 30%),
+    #f8fbff;
+  border: 1px solid #dce8f5;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.privacyContactBox strong {
+  font-size: 22px;
+  color: var(--navy);
+}
+
+.privacyContactBox span {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.privacyFooter {
+  margin-top: 50px;
+  padding-top: 28px;
+  border-top: 1px solid #dce8f5;
+  color: #8ba0bc;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .privacyPremiumCard {
+    padding: 28px;
+    border-radius: 26px;
+  }
+
+  .privacySection h2 {
+    font-size: 26px;
+  }
+
+  .privacySection p,
+  .privacySection li {
+    font-size: 16px;
+  }
+}
