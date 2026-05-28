@@ -118,20 +118,40 @@ export function Footer() {
           </p>
 
           <div className="footerSocial">
-  <a href="#" aria-label="LinkedIn">
-    <FaLinkedinIn />
+  <a
+    href="https://www.linkedin.com/company/incentivou/about/?viewAsMember=true"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="LinkedIn"
+  >
+    <Linkedin size={20} />
   </a>
 
-  <a href="#" aria-label="Instagram">
-    <FaInstagram />
+  <a
+    href="https://www.instagram.com/incentivou.br/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Instagram"
+  >
+    <Instagram size={20} />
   </a>
 
-  <a href="#" aria-label="Site">
-    <Globe size={18} />
+  <a
+    href="https://www.facebook.com/profile.php?id=61590598790399"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Facebook"
+  >
+    <Globe size={20} />
   </a>
 
-  <a href="#" aria-label="YouTube">
-    <FaYoutube />
+  <a
+    href="https://www.youtube.com/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="YouTube"
+  >
+    <Youtube size={20} />
   </a>
 </div>
         </div>

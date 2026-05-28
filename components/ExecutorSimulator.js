@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   FileCheck2,
   ShieldCheck,
-  Trophy,
 } from 'lucide-react';
 
 export default function ExecutorSimulator() {
@@ -140,10 +139,7 @@ export default function ExecutorSimulator() {
       <div className="executorTop">
         <span className="simBadge green">Simulador Executores</span>
 
-        <div className="executorIcon">
-          <Trophy size={28} />
-        </div>
-      </div>
+              </div>
 
       <h3>Simule a aptidão do seu projeto</h3>
 
