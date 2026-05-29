@@ -103,7 +103,6 @@ export default function Plataforma() {
         </div>
       </section>
 
-      <CTA />
     </main>
   );
 }

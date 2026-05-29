@@ -73,7 +73,7 @@ export default function Blog() {
                 <FaFacebookF /> Facebook
               </a>
 
-              <a href="https://wa.me/" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/553192662943/" target="_blank" rel="noreferrer">
                 <FaWhatsapp /> WhatsApp
               </a>
             </div>

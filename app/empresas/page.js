@@ -133,7 +133,6 @@ export default function Empresas() {
         </div>
       </section>
 
-      <CTA />
     </main>
   );
 }

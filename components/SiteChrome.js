@@ -275,19 +275,18 @@ export function PageHero({ eyebrow, title, text, children, hideCard = false }) {
 
 export function CTA() {
   return (
-    <section className="section" style={{ paddingTop: 20 }}>
+    <section className="section" style={{ paddingTop: 15 }}>
       <div className="container ctaBand">
         <div>
           <h2 style={{ margin: 0 }}>
-            Ferramentas e estratégias para descomplicar a Lei de Incentivo.
+            Ferramentas e estratégias para descomplicar a Lei de Incentivo. Incentive o Agora!
             <br />
-            Incentive o Agora!
           </h2>
-
           <p
             style={{
               margin: '10px 0 0',
               opacity: 0.9,
+              fontSize: '25px',
             }}
           >
             Descomplicamos os processos da Lei de Incentivo.
