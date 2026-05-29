@@ -74,21 +74,101 @@ export default function Solucoes() {
                   </p>
 
                   <ul className="clean">
-                    <li>
-                      <CheckCircle2 color="var(--green-2)" />
-                      Processo técnico documentado
-                    </li>
+  {(title === 'Plano Start') && (
+    <>
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Entendimento do potencial do projeto
+      </li>
 
-                    <li>
-                      <CheckCircle2 color="var(--green-2)" />
-                      Segurança jurídica e operacional
-                    </li>
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Mapeamento de riscos e adequações documentais
+      </li>
 
-                    <li>
-                      <CheckCircle2 color="var(--green-2)" />
-                      Próximos passos claros para o cliente
-                    </li>
-                  </ul>
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Direcionamento inicial com clareza
+      </li>
+    </>
+  )}
+
+  {(title === 'Projeto Aprovado') && (
+    <>
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Estruturação profissional do projeto
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Adequação às exigências legais
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Projeto pronto para protocolo
+      </li>
+    </>
+  )}
+
+  {(title === 'Captação Inteligente') && (
+    <>
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Posicionamento atrativo para patrocinadores
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Networking com potenciais apoiadores
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Construção de parcerias sustentáveis
+      </li>
+    </>
+  )}
+
+  {(title === 'Execução Segura') && (
+    <>
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Acompanhamento técnico especializado
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Controle operacional e documental
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Segurança durante toda execução
+      </li>
+    </>
+  )}
+
+  {(title === 'Esporte 360') && (
+    <>
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Solução completa em um só lugar
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Planejamento, captação e execução integrados
+      </li>
+
+      <li>
+        <CheckCircle2 color="var(--green-2)" />
+        Eficiência em todo o ciclo do projeto
+      </li>
+    </>
+  )}
+</ul>
 
                   <Link
                     className="btn primary"

@@ -247,26 +247,7 @@ export function PageHero({ eyebrow, title, text, children, hideCard = false }) {
         {children ? (
           children
         ) : !hideCard ? (
-          <div className="panel">
-            <h2>
-              <strong>Incentive</strong> o agora.
-            </h2>
-
-            <p
-              className="subtitle"
-              style={{
-                margin: 0,
-                textAlign: 'left',
-                maxWidth: '100%',
-                width: '100%',
-                whiteSpace: 'nowrap',
-                fontSize: '20px',
-              }}
-            >
-              Uma experiência digital completa para empresas, executores e
-              gestores de projetos incentivados.
-            </p>
-          </div>
+          <div />
         ) : null}
       </div>
     </section>
