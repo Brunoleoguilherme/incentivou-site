@@ -110,8 +110,8 @@ export function Footer() {
             <Image
               src="/images/incentivou_logo_transparente.png"
               alt="IncentiVou"
-              width={240}
-              height={70}
+              width={260}
+              height={90}
               priority
             />
           </Link>
